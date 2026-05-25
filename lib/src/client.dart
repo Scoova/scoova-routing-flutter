@@ -5,9 +5,10 @@ import 'package:http/http.dart' as http;
 
 import 'types.dart';
 
-const String _defaultBase = 'https://routing.scoo-va.info';
+const String _defaultBase = 'https://api.scoo-va.info/api/v1/routing';
 
-/// Standalone Valhalla routing client for `routing.scoo-va.info`.
+/// Standalone Valhalla routing client for the Scoova routing gateway
+/// (`api.scoo-va.info/api/v1/routing`).
 ///
 /// Eight endpoints: route, optimizedRoute, isochrone, matrix, height
 /// (alias elevation), mapMatch, locate, status.
@@ -15,8 +16,8 @@ const String _defaultBase = 'https://routing.scoo-va.info';
 /// Pass [locale] once (e.g. `'fr'`, `'ar-EG'`, `'pt-BR'`) and every request
 /// carries it as both the `?locale=` query parameter and the `Accept-Language`
 /// header. Per-call `RouteOptions.locale` / `IsochroneOptions.locale`
-/// overrides. Default `'en'`. Pass [apiKey] when going through the
-/// `api.scoo-va.info` gateway — sent as `X-API-Key` on every request.
+/// overrides. Default `'en'`. Pass [apiKey] — required by the gateway —
+/// sent as `X-API-Key` on every request.
 class RoutingClient {
   final String _baseUrl;
   final CostingType _defaultCosting;

@@ -1,9 +1,10 @@
 name: scoova_routing
 description: >-
-  Standalone Valhalla routing client for routing.scoo-va.info — route,
-  optimizedRoute, isochrone, matrix, height (alias elevation), mapMatch,
-  locate, status. Pure Dart, no Flutter dependency.
-version: 1.1.0
+  Standalone Valhalla routing client for the Scoova routing gateway
+  (api.scoo-va.info/api/v1/routing) — route, optimizedRoute, isochrone,
+  matrix, height (alias elevation), mapMatch, locate, status. Pure Dart,
+  no Flutter dependency.
+version: 1.1.1
 homepage: https://github.com/Scoova/scoova-routing-flutter
 repository: https://github.com/Scoova/scoova-routing-flutter
 issue_tracker: https://github.com/Scoova/scoova-routing-flutter/issues
