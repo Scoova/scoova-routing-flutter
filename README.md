@@ -1,6 +1,6 @@
 # scoova_routing
 
-Standalone Valhalla routing client for `routing.scoo-va.info`. Pure Dart,
+Routing client for `routing.scoo-va.info`. Pure Dart,
 no Flutter dependency — works in CLI / server / Flutter projects identically.
 
 ## Install

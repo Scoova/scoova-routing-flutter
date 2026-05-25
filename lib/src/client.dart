@@ -7,7 +7,7 @@ import 'types.dart';
 
 const String _defaultBase = 'https://api.scoo-va.info/api/v1/routing';
 
-/// Standalone Valhalla routing client for the Scoova routing gateway
+/// Routing client for the Scoova routing gateway
 /// (`api.scoo-va.info/api/v1/routing`).
 ///
 /// Eight endpoints: route, optimizedRoute, isochrone, matrix, height
@@ -196,7 +196,7 @@ class RoutingClient {
   }
 }
 
-/// Decode a Valhalla polyline6 string into `List<LatLng>`.
+/// Decode a polyline (precision 6, Google-format) string into `List<LatLng>`.
 List<LatLng> decodePolyline(String encoded, {int precision = 6}) {
   final coords = <LatLng>[];
   final factor = math.pow(10, precision).toDouble();
