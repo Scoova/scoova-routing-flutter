@@ -4,7 +4,7 @@ description: >-
   (api.scoo-va.info/api/v1/routing) — route, optimizedRoute, isochrone,
   matrix, height (alias elevation), mapMatch, locate, status. Pure Dart,
   no Flutter dependency.
-version: 1.1.2
+version: 1.2.0
 homepage: https://github.com/Scoova/scoova-routing-flutter
 repository: https://github.com/Scoova/scoova-routing-flutter
 issue_tracker: https://github.com/Scoova/scoova-routing-flutter/issues
@@ -12,7 +12,6 @@ documentation: https://cloud.scoo-va.info/docs
 
 topics:
   - routing
-  - the Scoova routing engine
   - directions
   - mobility
 

@@ -1,0 +1,41 @@
+name: Publish to pub.dev
+
+# Tag-triggered publish to pub.dev for package `scoova_routing`.
+# Trust is configured via the package's "Automated publishing" admin at
+#   https://pub.dev/packages/scoova_routing/admin
+# under verified publisher `scoo-va.info`. The tag pattern there must be
+# `v{{version}}` to match this workflow's trigger.
+#
+# `id-token: write` lets GitHub Actions mint an OIDC token; setup-dart@v1
+# threads it into `dart pub publish`'s credential store. No PUB_DEV_TOKEN
+# secret is needed — the tag itself is the credential.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    name: dart pub publish scoova_routing
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - name: Pub get
+        run: dart pub get
+      - name: Analyze (fail on warnings)
+        # --fatal-warnings stops on lint warnings but lets info-level
+        # doc-comment lints through; pub.dev's own scoring picks those up
+        # post-publish without blocking the release.
+        run: dart analyze --fatal-warnings
+      - name: Publish (dry-run preview)
+        run: dart pub publish --dry-run
+      - name: Publish
+        # With id-token:write + the publisher's automated-publishing trust
+        # policy enabled, the Dart SDK detects the GitHub Actions OIDC
+        # token via ACTIONS_ID_TOKEN_REQUEST_* and uses it directly.
+        run: dart pub publish --force
